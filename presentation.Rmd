@@ -1,0 +1,55 @@
+---
+title: "Shiny Application and Reproducible Pitch"
+author: "Aswin"
+date: "June 11, 2018"
+output: slidy_presentation
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Course Project description :
+
+This is the final course project for the Developing Data Products Course. The project consists on two parts:
+
+1. Shiny app with supporting documentation
+
+2. Presentation made through Slidify to pitch the above shiny app
+
+## The Data set : **hills**
+
+I have taken the data set **hills** from the **MASS** library.
+
+It contains the following data :
+
+```{r}
+library(MASS)
+head(hills)
+```
+
+The data set contains 4 columns and 35 rows.
+
+## Model used.
+
+We used lm to fit a linear model based on **hills** dataset
+
+```{r}
+library(ggplot2)
+plot(x=hills$dist, y=hills$time, main="Distance  - Time",xlab = "Distance",ylab="Time")
+fit <- lm(hills$time ~ hills$dist + hills$climb , data=hills)
+summary(fit)
+abline(fit,col="red")
+```
+
+## About Shiny App
+
+1. server.R : Graph is updated automatically by monitoring the sliders for changes in user input.The files can be found here : https://github.com/Aswin025/Shinyapps
+
+2. UI.R : Slider input is used to change distance and climb to estimate time taken to climb a mountain.The App can be found here : https://aswin025.shinyapps.io/TimePrediction/
+
+
+
+
+
